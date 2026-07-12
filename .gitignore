@@ -1,0 +1,65 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Pytest
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# ChromaDB
+chroma/
+chroma_db/
+*.sqlite3
+
+# FAISS
+*.faiss
+*.pkl
+
+# Vector Stores
+vectorstore/
+vector_store/
+db/
+storage/
+
+# Temporary Files
+*.tmp
+*.temp
+
+# uv
+.python-version
