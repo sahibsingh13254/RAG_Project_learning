@@ -1,0 +1,557 @@
+Java Backend Development Notes
+
+====================================================
+1. What is Java Backend Development?
+====================================================
+
+Java Backend Development refers to building the server-side logic of an application using Java. The backend is responsible for handling business logic, database interactions, authentication, APIs, and communication with frontend applications.
+
+Common responsibilities of a Java backend:
+- Process client requests
+- Perform business logic
+- Store and retrieve data
+- Authenticate users
+- Expose REST APIs
+- Connect with external services
+
+Popular frameworks:
+- Spring Boot
+- Spring MVC
+- Spring Security
+- Hibernate
+- Jakarta EE
+
+====================================================
+2. Spring Framework
+====================================================
+
+Spring is a Java framework used to simplify enterprise application development.
+
+Main features:
+- Dependency Injection (DI)
+- Inversion of Control (IoC)
+- Aspect-Oriented Programming (AOP)
+- MVC Architecture
+- Transaction Management
+
+Advantages:
+- Less boilerplate code
+- Easy testing
+- Modular architecture
+- Large community support
+
+====================================================
+3. Spring Boot
+====================================================
+
+Spring Boot is built on top of Spring Framework.
+
+Features:
+- Embedded Tomcat Server
+- Auto Configuration
+- Starter Dependencies
+- Production Ready Features
+- Actuator
+- Minimal configuration
+
+Common starters:
+- spring-boot-starter-web
+- spring-boot-starter-data-jpa
+- spring-boot-starter-security
+- spring-boot-starter-validation
+- spring-boot-starter-test
+
+====================================================
+4. REST API
+====================================================
+
+REST stands for Representational State Transfer.
+
+Common HTTP Methods:
+
+GET
+Retrieve data.
+
+POST
+Create new data.
+
+PUT
+Update complete object.
+
+PATCH
+Update partial object.
+
+DELETE
+Delete resource.
+
+Example:
+
+GET /users
+
+POST /users
+
+PUT /users/5
+
+DELETE /users/5
+
+====================================================
+5. Spring Boot Project Structure
+====================================================
+
+src
+ ├── controller
+ ├── service
+ ├── repository
+ ├── entity
+ ├── dto
+ ├── config
+ ├── exception
+ ├── util
+
+Each layer has its own responsibility.
+
+Controller
+Receives HTTP requests.
+
+Service
+Contains business logic.
+
+Repository
+Interacts with database.
+
+Entity
+Represents database tables.
+
+DTO
+Transfers data between layers.
+
+====================================================
+6. Important Annotations
+====================================================
+
+@SpringBootApplication
+Entry point of Spring Boot application.
+
+@RestController
+Marks a class as REST Controller.
+
+@Controller
+Returns HTML pages.
+
+@Service
+Business logic layer.
+
+@Repository
+Database layer.
+
+@Component
+Generic Spring Bean.
+
+@Autowired
+Injects dependencies automatically.
+
+@Bean
+Creates Spring-managed objects.
+
+@Configuration
+Configuration class.
+
+====================================================
+7. Dependency Injection
+====================================================
+
+Dependency Injection means Spring creates and manages objects instead of manually creating them.
+
+Constructor Injection is recommended because:
+- Easier testing
+- Immutable dependencies
+- Better design
+
+Example:
+
+public UserService(UserRepository repo){
+    this.repo = repo;
+}
+
+====================================================
+8. JPA and Hibernate
+====================================================
+
+JPA is a specification.
+
+Hibernate is an implementation of JPA.
+
+Advantages:
+- No SQL for simple CRUD
+- Automatic mapping
+- Database independence
+
+Common annotations:
+
+@Entity
+
+@Table
+
+@Id
+
+@GeneratedValue
+
+@Column
+
+@OneToOne
+
+@OneToMany
+
+@ManyToOne
+
+@ManyToMany
+
+====================================================
+9. Entity Relationships
+====================================================
+
+One-to-One
+
+One user has one profile.
+
+One-to-Many
+
+One department has many employees.
+
+Many-to-One
+
+Many employees belong to one department.
+
+Many-to-Many
+
+Many students enroll in many courses.
+
+====================================================
+10. DTO
+====================================================
+
+DTO means Data Transfer Object.
+
+Purpose:
+- Hide entity fields
+- Improve security
+- Reduce response size
+
+Entity should never be exposed directly.
+
+====================================================
+11. ModelMapper
+====================================================
+
+ModelMapper converts Entity into DTO and DTO into Entity.
+
+Example:
+
+UserDTO dto =
+modelMapper.map(user, UserDTO.class);
+
+====================================================
+12. Validation
+====================================================
+
+Validation ensures correct input.
+
+Common annotations:
+
+@NotNull
+
+@NotBlank
+
+@NotEmpty
+
+@Email
+
+@Size
+
+@Pattern
+
+@Min
+
+@Max
+
+====================================================
+13. Exception Handling
+====================================================
+
+Spring provides Global Exception Handling.
+
+Use:
+
+@ControllerAdvice
+
+@ExceptionHandler
+
+Benefits:
+- Centralized error handling
+- Clean controllers
+- Better API responses
+
+====================================================
+14. PostgreSQL
+====================================================
+
+PostgreSQL is an open-source relational database.
+
+Advantages:
+- ACID compliant
+- Reliable
+- Supports JSON
+- High performance
+
+Spring Boot connects using:
+
+spring.datasource.url
+
+spring.datasource.username
+
+spring.datasource.password
+
+====================================================
+15. Spring Data JPA Repository
+====================================================
+
+JpaRepository provides CRUD operations.
+
+Methods:
+
+save()
+
+findAll()
+
+findById()
+
+deleteById()
+
+count()
+
+existsById()
+
+====================================================
+16. Maven
+====================================================
+
+Maven manages project dependencies.
+
+Important file:
+
+pom.xml
+
+Common lifecycle:
+
+clean
+
+compile
+
+test
+
+package
+
+install
+
+====================================================
+17. Unit Testing
+====================================================
+
+JUnit is used for testing.
+
+Mockito creates mock objects.
+
+Annotations:
+
+@Test
+
+@Mock
+
+@InjectMocks
+
+@SpringBootTest
+
+@WebMvcTest
+
+====================================================
+18. Spring Security
+====================================================
+
+Spring Security provides:
+
+Authentication
+
+Authorization
+
+Password Encoding
+
+JWT Authentication
+
+OAuth2
+
+====================================================
+19. JWT
+====================================================
+
+JWT stands for JSON Web Token.
+
+Structure:
+
+Header
+
+Payload
+
+Signature
+
+Flow:
+
+User Login
+
+↓
+
+Server verifies credentials
+
+↓
+
+JWT Generated
+
+↓
+
+Client stores token
+
+↓
+
+Client sends token in Authorization Header
+
+↓
+
+Server validates token
+
+====================================================
+20. Microservices
+====================================================
+
+Microservices divide applications into smaller independent services.
+
+Advantages:
+
+Independent deployment
+
+Better scalability
+
+Fault isolation
+
+Technology flexibility
+
+Easy maintenance
+
+Common tools:
+
+Spring Boot
+
+Spring Cloud
+
+Netflix Eureka
+
+Kafka
+
+Docker
+
+Kubernetes
+
+====================================================
+21. Kafka
+====================================================
+
+Kafka is a distributed messaging system.
+
+Important concepts:
+
+Producer
+
+Consumer
+
+Broker
+
+Topic
+
+Partition
+
+Offset
+
+Kafka is used for asynchronous communication.
+
+====================================================
+22. Design Patterns
+====================================================
+
+Common backend design patterns:
+
+Singleton
+
+Factory
+
+Builder
+
+Strategy
+
+Observer
+
+Repository
+
+DTO Pattern
+
+====================================================
+23. SOLID Principles
+====================================================
+
+S - Single Responsibility Principle
+
+O - Open Closed Principle
+
+L - Liskov Substitution Principle
+
+I - Interface Segregation Principle
+
+D - Dependency Inversion Principle
+
+====================================================
+24. Best Practices
+====================================================
+
+- Keep controllers thin.
+- Put business logic in services.
+- Use DTOs instead of entities.
+- Validate all user input.
+- Write unit tests.
+- Use constructor injection.
+- Handle exceptions globally.
+- Follow REST naming conventions.
+- Use meaningful variable names.
+- Keep methods small and focused.
+
+====================================================
+25. Interview Facts
+====================================================
+
+Spring Boot was first released in 2014.
+
+Hibernate is the most popular JPA implementation.
+
+Constructor Injection is preferred over Field Injection.
+
+@RestController = @Controller + @ResponseBody.
+
+JpaRepository extends PagingAndSortingRepository.
+
+Spring Boot uses embedded Tomcat by default.
+
+DTOs improve API security and maintainability.
+
+Kafka enables asynchronous communication between microservices.
+
+JWT is stateless authentication.
+
+ModelMapper automatically maps objects with matching fields.
+
+End of Notes.
