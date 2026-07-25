@@ -27,3 +27,7 @@ uvicorn
 
 pandas
 numpy
+langchain-huggingface
+sentence-transformers
+
+streamlit
