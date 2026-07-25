@@ -51,9 +51,7 @@ chroma_db/
 *.faiss
 *.pkl
 
-# Vector Stores
-vectorstore/
-vector_store/
+
 db/
 storage/
 
