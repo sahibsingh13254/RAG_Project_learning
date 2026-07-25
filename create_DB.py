@@ -19,7 +19,7 @@ splitter = RecursiveCharacterTextSplitter(
 
 chunks = splitter.split_documents(docs)
 
-embedding_model = MistralAIEmbeddings()
+embedding_model = MistralAIEmbeddings ()
 vectorstore= Chroma.from_documents(
     documents = chunks,
     persist_directory = "chroma_database"

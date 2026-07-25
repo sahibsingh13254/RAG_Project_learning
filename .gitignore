@@ -44,7 +44,7 @@ dist/
 
 # ChromaDB
 chroma/
-chroma_db/
+chroma-db/
 *.sqlite3
 
 # FAISS
